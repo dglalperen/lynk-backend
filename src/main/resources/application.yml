@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: lynk
+  datasource:
+    url: jdbc:postgresql://localhost:5432/lynkdb
+    username: appuser
+    password: apppass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+server:
+  port: 8080
+
+lynk:
+  allowed-email-domains:
+    - uni-wien.ac.at
+    - tuwien.ac.at
+    - stud.hs-ruhrwest.de
